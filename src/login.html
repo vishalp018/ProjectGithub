@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUPLAY Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        a[type="submit"] {
+            width: 95%;
+            padding: 10px;
+            background-color: #020202;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #bebebe;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>EDUPLAY Login</h1>
+        <form id="login-form" action="#" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <a type="submit" href="game.html">Login</a>
+        </form>
+        <div class="text-center">
+            <span class="error-message" id="error-message"></span>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Get the form and error message elements
+        const form = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        // Add submit event listener to the form
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Get the entered email and password values
+            const email = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Store the email and password in local storage
+            localStorage.setItem('eduplayEmail', email);
+            localStorage.setItem('eduplayPassword', password);
+
+            // Redirect to the login page (replace 'login.html' with the actual path)
+            window.location.href = 'game.html';
+        });
+    </script>
+</body>
+
+</html>
